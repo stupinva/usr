@@ -331,7 +331,7 @@ bool_t apply_params(int sock, mac_t *mac, const params_t *params)
   /* Готовим настройки преобразователя интерфейсов */
   writeparams_t wp;
   wp.mac = *mac;
-  memcpy(&(wp.password), DEFAULT_PASSWORD, sizeof(wp.password));
+  memcpy(&(wp.password), DEFAULT_PASSWORD, sizeof(DEFAULT_PASSWORD));
   wp.params = *params;
 
   /* Формируем пакет настройки преобразователя интерфейсов */
