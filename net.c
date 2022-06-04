@@ -11,6 +11,13 @@
 #include "proto.h"
 #include "net.h"
 
+/* По какой-то непонятной причине в файле sys/socket.h в Linux может недоставать
+   макроса SO_BINDTODEVICE, хотя он описан в socket(7).
+   Добавил костыль, т.к. пока не нашёл лучшего решения */
+#ifndef SO_BINDTODEVICE
+#define SO_BINDTODEVICE 25
+#endif
+
 /* Здесь будет храниться широковещательный адрес */
 static struct sockaddr broadcast;
 static socklen_t broadcastlen = 0;
